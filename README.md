@@ -38,7 +38,7 @@ Django based secure social media platform with functionality of Payment, dashboa
 	- templates :
 		UI for the website.
 
-*** Libraries needed ***
+**Libraries needed**
 	
 	- Django
 		pip3 install Django
