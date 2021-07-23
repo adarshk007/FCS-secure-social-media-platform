@@ -1,0 +1,38 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="
+	padding: 50px;	
+	background-color: #F5F5F5;
+	margin-top:10px;
+	margin-bottom: 40px;
+">
+
+	<div class="container" style="
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+	">
+
+	<form method="POST">
+		{% csrf_token %}
+		<label>
+			Page Title:
+		</label>
+		<input type="text" name="page_name" class="form-control">
+		<hr>
+		<label>
+			Content of the page : 
+		</label>
+		<textarea name="content" class="form-control" placeholder="Enter your content here"></textarea>
+		<hr>
+		<button type="submit" class="btn btn-outline-primary">Create Page</button>
+
+	</form>
+
+	</div>
+</div>
+	
+{% endblock content %}

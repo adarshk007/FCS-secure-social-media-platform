@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Messenger</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
+.message-bubble 
+{padding: 10px 0px 10px 0px;}
+.text-muted{font-weight: bold;}#sender > .text-muted{color: rgb(9, 170, 9);}#receiver > .text-muted{color: rgb(223, 54, 54);}.message-bubble:nth-child(even) { background-color: #F5F5F5; }
+.message-bubble > *
+{padding-left: 10px; }
+.panel-body { padding: 0px; }
+.panel-heading { background-color: #3d6da7 !important; color: white !important; }
+</style>
+</head>
+
+<body>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">Chat Application</div>
+          <div class="panel-body">
+            <div  class="container">
+                <div  id="sender" class="row message-bubble">
+              {% for i in message %}
+                <p class="text-muted">{{i.user_1.first_name}}</p>
+                    <p>{{i.message}}</p>
+                    <p>{{i.message_sent}}</p>
+                
+              {% endfor %}
+              {% if visibile == True %}
+              <div class="panel-footer">
+                  <form method="POST">
+                      {% csrf_token %}
+                    
+                      <div class="input-group">
+                          <textarea rows="1" cols="6"  class="form-control" name = "post_area"></textarea>
+                          <span class="input-group-btn">
+                            <button class="btn btn-warning" type="submit">Send</button>
+                          </span>
+                        </div>
+                  </form>
+              </div>
+              {% endif %}
+            </div>    
+            </div>
+
+          </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	$(document).bind("contextmenu",function(e) {
+ e.preventDefault();
+});
+$(document).keydown(function(e){
+    if(e.which === 123){
+       return false;
+    }
+});
+</script>
+</body>
+</html>
+
+<!-- <form method="POST">
+    {% csrf_token %}
+  
+    <div class="input-group">
+        <input type="text" class="form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-warning" type="button">Send</button>
+        </span>
+      </div>
+</form> -->

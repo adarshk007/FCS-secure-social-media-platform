@@ -1,0 +1,45 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="
+	padding: 50px;	
+	background-color: #F5F5F5;
+	margin-top:10px;
+	margin-bottom: 40px;
+">
+
+	<div class="container" style="
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+	">
+
+	You are 
+	{% if user_type == 2 %}
+		Commercial User
+	{% elif user_type == 1 %}
+		Premium User<br>
+			
+		<p>
+			Click to upgrate to
+ 			<a href="/upgrade/2">commercial</a>
+		</p>
+
+	{% else %}
+		Casual User<br>
+
+		<p>
+Click to upgrade to
+			 <a href="/upgrade/2">commerical</a>
+			 <a href="/upgrade/1">premium</a>
+
+		</p>
+	{% endif %}
+
+
+	</div>
+</div>
+	
+{% endblock content %}

@@ -1,0 +1,54 @@
+{% extends 'wallet/base.html' %}
+
+{% block wallet %}
+
+	<form method="POST">
+		{% csrf_token %}
+		<div class="row">
+			
+			<div class="col-md-6">
+
+				<div class="form-group">
+					<label for="friend_dropdown">Friend List</label>
+					<select class="form-control" name="u_id" id="friend_dropdown">
+			          {% for f in friends %}
+				          	{% if f.user_1 == request.user %}
+						<option value="{{ f.user_2.id }}">
+				          		{{ f.user_2.username }}
+			      		</option>
+				          	{% else %}
+			          	<option value="{{ f.user_1.id }}">
+				          		{{ f.user_1.username }}
+				          	{% endif %}
+			          	</option>
+			          {% endfor %}
+					</select>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label for="Amount">Amount</label>
+					
+					<input type="number" class="form-control" name="amount">
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label></label>
+					
+					<button type="submit" class="form-control btn btn-outline-success">Send Money</button>	
+				</div>
+			</div>		
+		</div>
+	</form>
+	
+
+	<script>
+		var dropdown = dowcument.getElementById('dropdownMenuLink');
+		var input = document.getElementById('friend_list')
+		select.onchange = function() {
+			dropdown.value = input.value
+		}
+	</script>
+
+{% endblock wallet %}

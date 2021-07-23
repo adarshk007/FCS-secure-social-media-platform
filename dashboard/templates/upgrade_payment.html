@@ -1,0 +1,44 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="
+	padding: 50px;	
+	background-color: #F5F5F5;
+	margin-top:10px;
+	margin-bottom: 40px;
+">
+
+	<div class="container" style="
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+	">
+	{{ type }}
+	{% if type == 1 %}
+	<form method="POST">
+		{% csrf_token %}
+		<p>Upgrade to Premium Account. There are three choices</p>
+			<select class="form-control" name="amount" id="friend_dropdown">
+				<option value="50">50</option>
+				<option value="100">100</option>
+				<option value="150">150</option>
+			</select>
+		<button type="submit" href="/upgrade/1" class="btn btn-primary">Pay</button>
+	</form>
+	{% endif %}
+	{% if type == 2 %}
+	<form method="POST">
+		{% csrf_token %}
+		<p>Upgrade to Commercial Account</p>
+			Amount : 5000
+		<button type="submit" href="/upgrade/1" class="form-control btn btn-primary">Pay</button>
+	</form>
+	{% endif %}
+	
+	</div>
+	
+</div>
+	
+{% endblock content %}

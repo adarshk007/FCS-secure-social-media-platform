@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-white rounded" style="
+	height: 60px;
+	background-color: #734b6d;
+background-image: linear-gradient(0deg, ##0f0c29 0%, ##302b63 100%);
+box-shadow: 0px 10px 30px grey !important;
+
+">
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			
+				<li class="nav-item " style="
+					
+				">
+					<a href="{% url 'home' %}" class="nav-link  " style="
+
+				/*	width: 80px;
+					height: 32px;
+					color:white;
+					box-shadow: 2px 2px 5px grey;
+					display: -webkit-flex;
+				  display: flex;
+				  -webkit-flex-wrap: wrap;
+				  flex-wrap: wrap;
+				  -webkit-align-content: center;
+				  align-content: center;
+				  margin-bottom: 0px;
+				*/	
+				">Home
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="/profile/{{ request.user.id }}"  class="nav-link">Profile</a>
+					
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{% url 'friends' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Friends
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			          <a class="dropdown-item" href="{% url 'friends' %}">Friend List</a>
+			          <hr>
+			          <a class="dropdown-item" href="{% url 'friend_requests' %}">Friend Requests</a> 
+					
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{% url 'messenger' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Messenger
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			          <a class="dropdown-item" href="{% url 'messenger' %}">Open Messenger</a>
+			          <hr>
+			          <a class="dropdown-item" href="{% url 'create_group' %}">Create Group</a>
+				</li>
+				<li class="nav-item dropdown">
+			        <a class="nav-link dropdown-toggle" href="{% url 'wallet' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Wallet
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			          <a class="dropdown-item" href="{% url 'wallet' %}">Open Wallet</a>
+			          <hr>
+			          <a class="dropdown-item" href="{% url 'add_money' %}">Add Money</a>
+			          <a class="dropdown-item" href="{% url 'transfer_money' %}">Transfer Money</a>
+			          <a class="dropdown-item" href="{% url 'transactions' %}">All Transactions</a>
+			          <a class="dropdown-item" href="{% url 'accept_decline' %}">Transaction Requests</a>
+		      	</li>
+		      	{% if request.user.is_commercial_user %}
+			      	<li class="nav-item">
+						<a href="{% url 'create_page'%}" class="nav-link">Create Page</a>
+						
+					</li>
+				{% endif %}
+		      	<li class="nav-item">
+		      		<a class="nav-link" href="{% url 'upgrade' %}">Upgrade Account</a>
+		      	</li>
+		</ul>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+  			    <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}">
+			    	<input name="q" class="form-control mr-sm-2" type="search" placeholder="Search for friends or groups" aria-label="Search" value="{{ request.GET.q }}" style="width: 500px;">
+			    	<button class="btn btn-success my-2 my-sm-0" type="submit" style="width: 130px;">Search</button>
+		    	</form>
+			</li>
+		</ul>
+		<ul class="navbar-nav navbar-right">
+
+
+
+				<li class="nav-item" style="
+					margin-right: 10px; 
+				">
+					<a href="#" class="nav-link">
+						{% if request.user.is_commercial_user %}
+							Commercial User
+						{% elif request.user.is_premium_user %}
+							Premium User
+						{% else %}
+							Casual User
+						{% endif %}
+					</a>
+					
+				</li>
+				<li class="nav-item">
+					<a href="{% url 'logout' %}" class="nav-link btn btn-danger " style="
+						height:100%;
+						color: white;
+						width: 100px;
+					">Logout</a>
+					
+				</li>
+
+		</ul>
+	</div>
+</nav>

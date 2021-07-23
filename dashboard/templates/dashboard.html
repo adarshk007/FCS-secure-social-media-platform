@@ -1,0 +1,29 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+	<h1>Dashboard</h1>
+
+
+	
+	<br>
+	<b><font face="verdana" size="3" color="green">logged in</font></b> 
+	
+	<hr>
+	
+	<b>User Information</b><br>
+	Username : {{ request.user.username }} <br>
+	Email : {{ request.user }} <br>
+
+	
+	<hr>
+
+	<h4>All Pages</h4><br><br>
+	{% for page in pages %}
+
+		<a href="/page/{{ page.id }}">{{page.page_title}}</a>
+		<br>
+
+	{% endfor %}
+
+{% endblock %}

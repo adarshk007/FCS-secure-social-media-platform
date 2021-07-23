@@ -1,0 +1,27 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="
+	padding: 50px;	
+	background-color: #F5F5F5;
+	margin-top:10px;
+	margin-bottom: 40px;
+">
+
+	<div class="container" style="
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+	">
+
+	Title : {{ page_data.page_title }}
+	<hr>
+	Page Content : {{ page_data.content }}
+	<hr>
+
+	</div>
+</div>
+	
+{% endblock content %}

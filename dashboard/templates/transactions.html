@@ -1,0 +1,31 @@
+{% extends 'wallet/base.html' %}
+
+{% block wallet %}
+
+				
+	<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Sender</th>
+      <th scope="col">Reciever</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Method</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for t in transactions %}
+    <tr>
+      <td>{{ t.user_1.username }}</td>
+      <td>{{ t.user_2.username }}</td>
+      <td>{{ t.amount }}</td>
+      <td>{{ t.payment_method }}</td>
+      <td>{{ t.status }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+{% endblock wallet %}

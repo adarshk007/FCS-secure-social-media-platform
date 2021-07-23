@@ -1,0 +1,20 @@
+{% extends "dashboard/base.html" %}
+
+{% block content %}
+<div class="container-fluid" style="
+	padding: 40px;
+">
+	<h1> Edit Profile Information </h1>
+	<hr>
+	<form method="POST">
+		{% csrf_token %}
+
+		{{ edit_profile_info_form.as_p }}
+
+		<hr>
+		<button type="submit" class="btn btn-outline-info">Save</button>
+	</form>
+
+</div>
+
+{% endblock %}

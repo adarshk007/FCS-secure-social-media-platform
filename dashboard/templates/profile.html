@@ -1,0 +1,74 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<div class="conatiner-fluid" style="
+	padding: 30px;
+">
+	
+	<div class="conatiner-fluid" style="
+		padding: 30px;
+	">
+		<p>
+			Name : {{ user.first_name }} {{user.last_name}}
+		</p>
+		<p>
+			Username : {{ user.username }} <br>
+		</p>
+		<p>
+			Email : {{ user }} <br>
+		</p>
+		<p>
+			Phone No : {{ user.phone_no }} <br>
+		</p>
+			{% if u_id == request.user.id %}
+				<p>
+					<a href="{% url 'edit_profile_info' %}"class="btn btn-outline-primary" disabled>
+						Edit Profile
+					</a>
+				</p>
+			{% endif %}
+	</div>
+
+	<hr>
+	{% if is_friend %}
+	<div class="conatiner-fluid" style="
+		padding: 30px;
+	">
+
+		<a href="/create_post/{{ u_id }}" class="btn btn-outline-primary">Create Post</a>
+		<hr>
+		<h2>TimeLine</h2>
+
+		<div>
+			
+		{% for post in posts %}
+		        <article class="media content-section">
+		            <div class="media-body">
+		                <div class="article-metadata">
+		                    <a class="mr-2" href="#">{{ post.author.first_name }}</a>
+		                    <small class="text-muted">{{ post.date_posted }}</small>
+		                </div>
+		                <p class="article-content">{{ post.content }}</p>
+		            </div>
+		        </article>
+		{% endfor %}
+		</div>
+
+	</div>
+	{% endif %}
+
+
+</div>
+
+<!-- 
+	<b>User's Friend List</b>
+	{% for friend in friends_list%}
+		Name : friend.username
+	{% endfor %}
+	<br>
+		{{ friends_list }}
+ -->
+
+
+{% endblock %}

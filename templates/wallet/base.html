@@ -1,0 +1,110 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="
+	padding: 50px;	
+	background-color: #F5F5F5;
+	margin-top:50px;
+	margin-bottom: 10px !important; 
+">
+
+	<div class="container" style="
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+	">
+		<div class="row" style="
+		">
+			<div class="col-sm-2" style="
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			">
+				<a href="{% url 'wallet' %}" class="btn btn-outline-primary active" style="
+					width: 160px;
+					box-shadow: 5px 5px 4px #E0E0E0;
+				">Wallet</a>				
+				
+			</div>
+			<div class="col-sm-2" style="
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			">
+				<a href="{% url 'add_money' %}" class="btn btn-outline-primary" style="
+					width: 160px;
+					box-shadow: 5px 5px 4px #E0E0E0;
+				">Add Money</a>				
+				
+			</div>
+			<div class="col-sm-2" style="
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			">
+				<a href="{% url 'transfer_money' %}" class="btn btn-outline-primary" style="
+					width: 160px;
+					box-shadow: 5px 5px 4px #E0E0E0;
+				">Send Money</a>
+				
+			</div>
+			<div class="col-sm-2" style="
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			">
+				<a href="{% url 'accept_decline' %}" class="btn btn-outline-primary" style="
+					width: 160px;
+					box-shadow: 5px 5px 4px #E0E0E0;
+				">Accept/Decline Money</a>
+				
+			</div>
+			<div class="col-sm-2" style="
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			">
+				<a href="{% url 'transactions' %}" class="btn btn-outline-primary" style="
+					width: 160px;
+					box-shadow: 5px 5px 4px #E0E0E0;
+				">Transactions History</a>
+				
+			</div>
+<!-- 			<div class="col-sm-3" style="
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			">
+				
+			</div> -->
+			
+		</div>
+	</div>
+
+</div>
+
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="
+	padding: 50px;	
+	background-color: #F5F5F5;
+	margin-top:10px;
+	margin-bottom: 40px;
+">
+
+	<div class="container" style="
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+	">
+
+
+
+{% block wallet %} {% endblock wallet %}
+
+	</div>
+</div>
+
+{% endblock content %}

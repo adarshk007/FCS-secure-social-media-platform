@@ -1,0 +1,47 @@
+{% extends 'message/messages.html' %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+{% block message %}
+
+<center><h4>Friend list</h4></center>
+<div class="table-wrapper ">
+<table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        {% for friend in friends %}
+        {% if friend.user_1 == request.user %}
+        <tbody>
+
+          <tr>
+            <td scope="row">{{ friend.user_2.email }}</td>
+            <td>{{friend.user_2.first_name}}</td>
+            <td><button onclick="location.href='/messenger/{{friend.user_1.id}}/{{friend.user_2.id}}/'" id='{{friend.user_2.email}}' type="button" class="btn btn-warning"><i class="fa fa-pencil"></i>Chat</button></td>
+          </tr>
+
+        </tbody>
+        {% else %}
+        <tbody>
+
+                <tr>
+                  <td scope="row">{{ friend.user_1.email }}</td>
+                  <td>{{friend.user_1.first_name}}</td>
+                  <td><button onclick="location.href='/messenger/{{friend.user_2.id}}/{{friend.user_1.id}}'" id='{{friend.user_1.email}}' type="button" class="btn btn-warning chatter" ><i class="fa fa-pencil"></i>Chat</button></td>
+                </tr>
+
+              </tbody> 
+        {% endif %}
+        {% endfor %}
+      </table>
+
+    </div>
+
+{% endblock message %}

@@ -1,0 +1,47 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+
+
+
+
+
+
+<div class="container">
+
+	{% for friend in friend_requests %}
+ 
+    <!-- contacts card -->
+    <div class="card card-default" id="card_contacts">
+        <div id="contacts" class="panel-collapse collapse show" aria-expanded="true" style="">
+            <ul class="list-group pull-down" id="contact-list">
+
+                <li class="list-group-item">
+                    <div class="row w-100">
+                        <div class="col-12 col-sm-6 col-md-3 px-0">
+                            <img src="http://demos.themes.guide/bodeo/assets/images/users/m101.jpg" alt="Mike Anamendolla" class="rounded-circle mx-auto d-block img-fluid">
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-9 text-center text-sm-left">
+                            <span class="fa fa-mobile fa-2x text-success float-right pulse" title="online now"></span>
+                            <label class="name lead">{{friend.user_1.first_name}}</label>
+                            <br> 
+                            
+                            <span class="fa fa-phone fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="(870) 288-4149"></span>
+                            <span class="text-muted small">{{ friend.user_1.phone_no }}</span>
+                            <br>
+                            <span class="fa fa-envelope fa-fw text-muted" data-toggle="tooltip" data-original-title="" title=""></span>
+                            <span class="text-muted small text-truncate">{{ friend.user_1.email }}</span>
+                            <br>
+                            <a href="/profile/{{ friend.user_1.id }}" class="btn btn-outline-primary">View Profile</a>
+                        <a href="/profile/{{ friend.user_1.id }}/accept_request" class="btn btn-outline-danger">Accept Request</a>
+                        <a href="/profile/{{ friend.user_1.id }}/delete_request" class="btn btn-outline-danger">Delete Request</a>
+                        </div>
+                    </div>
+                </li>
+               </ul>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

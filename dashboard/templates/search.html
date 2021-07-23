@@ -1,0 +1,52 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+{% if result %}
+
+	{% for r in result %}
+			<div class="row">
+				<div class="col-md-4">
+						sdgdfg
+				</div>
+						
+				<div class="col-md-6">
+					<table style="
+						
+
+					">
+						<tr>
+								<tr>
+									<td>Name</td>
+									<td>{{ r.first_name }} {{ r.last_name }}</td>
+
+								</tr>
+								<tr>
+									<td>Email</td>
+									<td>{{ r.email }}</td>
+
+								</tr>
+								<tr>
+									<td>Phone No : </td>
+									<td>{{ r.phone_no }}</td>
+
+								</tr>
+								<tr>
+									<td>Username</td>
+									<td>{{ r.username }}</td>
+
+								</tr>
+						</tr>
+					</table>	
+							
+							<a href="/profile/{{ r.id }}/send_request" class="btn btn-primary">Add Friend</a>
+
+							<a href="/profile/{{ r.id }}" class="btn btn-success">View Profile</a>
+				</div>
+			</div>
+			<hr>						
+
+
+	{% endfor %}
+{% endif %}
+{% endblock %}

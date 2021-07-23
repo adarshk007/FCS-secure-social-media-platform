@@ -1,0 +1,16 @@
+{% extends "dashboard/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Post what's on your mind :</legend>
+            </fieldset>
+            <textarea rows="6" cols="6" name = "post_content" placeholder="Enter your post here" class="form-control"></textarea>
+            <hr>
+            <div class="form-group">
+                <button class="btn btn-outline-primary" type="submit">Post</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %} 
