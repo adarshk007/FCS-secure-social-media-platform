@@ -1,7 +1,7 @@
 # FCS-secure-social-media-platform
 Django based secure social media platform with functionality of Payment, dashboard, friend list, message, transaction history , group making wall post etc.  
 
-*** Commands ***
+**Commands**
 
 	- To run the Project : 
 		"python manage.py runserver" 
@@ -21,7 +21,7 @@ Django based secure social media platform with functionality of Payment, dashboa
 		"git remote -v"
 		"git push origin master"
 
-*** Apps in Project ***
+**Apps in Project**
 
 	- Account :
 		For user signup and signin using customforms.
@@ -44,7 +44,7 @@ Django based secure social media platform with functionality of Payment, dashboa
 		pip3 install Django
 
 
-*** Databases ***
+**Databases: sqlite**
 	
 	- User model (in account app)
 		Attributes : 
@@ -60,7 +60,7 @@ Django based secure social media platform with functionality of Payment, dashboa
 			to be done
 		}
 
-*** Template Pages ***
+**Template Pages**
 
 	-login.html
 	-register.html
